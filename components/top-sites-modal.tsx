@@ -51,7 +51,7 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
         <X className="w-5 h-5" />
       </Button>
 
-      <div className="w-full max-w-md mx-auto px-4  rounded-md">
+      <div className="w-full max-w-md mx-auto px-4 rounded-xl">
         {/* Title */}
         <div className="text-center mb-6">
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">DAGENS FAVORIT</h2>
@@ -59,13 +59,13 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
         </div>
 
         {/* Single Card */}
-        <div className="sports-card border-2 border-gold-500 shadow-2xl overflow-hidden">
+        <div className="sports-card border-2 border-gold-500 shadow-2xl overflow-hidden rounded-xl">
           {/* Logo section */}
-          <div className="bg-white h-16 sm:h-20 flex items-center justify-center p-3 sm:p-4 border-b-2 border-gray-200">
+          <div className="bg-white h-20 sm:h-24 flex items-center justify-center p-4 sm:p-6 border-b-2 border-gray-200">
             <img
               src={favoriteToday.logo || "/placeholder.svg"}
               alt={favoriteToday.name}
-              className="h-14 sm:h-20 w-auto object-contain"
+              className="h-16 sm:h-20 w-auto object-contain"
             />
           </div>
 
@@ -93,15 +93,25 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
               </Link>
             </div>
 
-            {/* Terms - Hidden on very small screens */}
-
+            {/* Disclaimer */}
+            <div className="border-t border-gray-200 pt-3 mt-4">
+              <p className="text-xs text-gray-600">
+                18+ | Sikker spil |{" "}
+                <a
+                  href="https://spillemyndigheden.dk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-600 hover:text-brand-700 underline"
+                >
+                  spillemyndigheden.dk
+                </a>
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="text-center py-4">
-
-        </div>
+        <div className="text-center py-4"></div>
       </div>
     </div>
   )
