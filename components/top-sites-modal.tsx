@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState, useEffect } from "react"
 import { X, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -15,7 +13,7 @@ interface Top3ModalProps {
 
 export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [expandedTerms, setExpandedTerms] = useState<{ [key: number]: boolean }>({})
+  const [favoriteToday, setFavoriteToday] = useState<BettingSite | null>(null)
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -31,117 +29,82 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
     // Не показувати модалку на мобільних
     if (isMobile) return
 
+    // Вибираємо рандомний сайт з топ-5
+    const randomIndex = Math.floor(Math.random() * Math.min(5, bettingSites.length))
+    setFavoriteToday(bettingSites[randomIndex])
+
     const timer = setTimeout(() => {
       setIsOpen(true)
     }, 8000)
 
     return () => clearTimeout(timer)
-  }, [isMobile])
+  }, [isMobile, bettingSites])
 
-  if (!isOpen) return null
-
-  // Змінюємо порядок: центр (1-й), ліва (2-й), права (3-й)
-  const top3Sites = bettingSites.slice(0, 3)
-  const reorderedSites = [
-    top3Sites[1], // 2-й сайт (BetVictor) - ліва позиція
-    top3Sites[0], // 1-й сайт (Novibet) - центральна позиція
-    top3Sites[2], // 3-й сайт (Midnite) - права позиція
-  ]
-
-  const toggleTerms = (siteId: number, e: React.MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setExpandedTerms((prev) => ({
-      ...prev,
-      [siteId]: !prev[siteId],
-    }))
-  }
+  if (!isOpen || !favoriteToday) return null
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-1 sm:p-4">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4">
       {/* Close button */}
       <Button
         variant="ghost"
         size="sm"
         onClick={() => setIsOpen(false)}
-        className="absolute top-1 right-1 sm:top-4 sm:right-4 text-tech-white hover:bg-tech-white/10 z-10 w-6 h-6 sm:w-10 sm:h-10 p-0 bg-tech-black/50 border border-tech-gold"
+        className="absolute top-4 right-4 text-white hover:bg-white/10 z-10 w-10 h-10 p-0 bg-black/50 border border-gold-500"
       >
-        <X className="w-3 h-3 sm:w-5 sm:h-5" />
+        <X className="w-5 h-5" />
       </Button>
 
-      <div className="w-full max-w-6xl h-full max-h-screen overflow-hidden flex flex-col">
+      <div className="w-full max-w-md">
         {/* Title */}
-        <div className="text-center mb-2 sm:mb-6 px-1 flex-shrink-0">
-          <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold text-tech-white mb-1 tech-heading">
-            TOP IRISH BETTING SITES
-          </h2>
-          <p className="text-tech-gray-300 text-xs font-medium tech-subheading">Expert reviewed</p>
+        <div className="text-center mb-6">
+          <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">DAGENS FAVORIT</h2>
+          <p className="text-gray-300 text-sm font-medium">Vores ekspert anbefaling i dag</p>
         </div>
 
-        {/* Cards Layout */}
-        <div className="flex-1 flex items-center justify-center gap-1 sm:gap-4 w-full px-1 overflow-hidden">
-          {reorderedSites.map((site: BettingSite, index: number) => {
-            const isCenter = index === 1
-            const rank = isCenter ? 1 : index === 0 ? 2 : 3
+        {/* Single Card */}
+        <div className="sports-card border-2 border-gold-500 shadow-2xl overflow-hidden">
+          {/* Logo section */}
+          <div className="bg-white h-20 flex items-center justify-center p-4 border-b-2 border-gray-200">
+            <img
+              src={favoriteToday.logo || "/placeholder.svg"}
+              alt={favoriteToday.name}
+              className="h-16 w-auto object-contain"
+            />
+          </div>
 
-            return (
-              <div
-                key={site?.id || index}
-                className={`overflow-hidden transition-all duration-300 hover:scale-105 flex flex-col ${
-                  isCenter
-                    ? "w-[120px] sm:w-[320px] h-[280px] sm:h-[400px] border-2 border-tech-gold shadow-tech-glow"
-                    : "w-[100px] sm:w-[280px] h-[260px] sm:h-[380px] border-2 border-tech-white shadow-tech-strong"
-                } bg-tech-white rounded-lg`}
-              >
-                {/* Logo section */}
-                <div className="bg-tech-gray-50 h-8 sm:h-20 flex items-center justify-center p-1 sm:p-4 border-b-2 border-tech-gray-200 flex-shrink-0">
-                  <img
-                    src={site?.logo || "/placeholder.svg"}
-                    alt={site?.name || "Site"}
-                    className="h-6 sm:h-16 w-auto object-contain"
-                  />
-                </div>
+          {/* Content */}
+          <div className="bg-white text-black p-6 text-center">
+            {/* Stars */}
+            <div className="flex justify-center gap-1 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 fill-gold-500 text-gold-500" />
+              ))}
+            </div>
 
-                {/* Content */}
-                <div className="bg-tech-white text-tech-black flex-1 flex flex-col p-1 sm:p-4 text-center min-h-0">
-                  {/* Stars */}
-                  <div className="flex justify-center gap-0.5 mb-1 sm:mb-3 flex-shrink-0">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-2 h-2 sm:w-4 sm:h-4 fill-tech-gold text-tech-gold" />
-                    ))}
-                  </div>
+            {/* Offer */}
+            <div className="mb-6">
+              <div className="text-2xl font-bold mb-2 text-black">{favoriteToday.bonus}</div>
+              <div className="text-xl font-semibold text-brand-700">{favoriteToday.welcomeOffer}</div>
+            </div>
 
-                  {/* Offer */}
-                  <div className="flex-1 flex flex-col justify-center mb-1 sm:mb-4 min-h-0">
-                    <div className="text-xs sm:text-xl font-bold mb-1 text-tech-black tech-heading">{site?.bonus}</div>
-                    <div className="text-xs sm:text-lg font-semibold text-tech-red tech-heading">
-                      {site?.welcomeOffer}
-                    </div>
-                  </div>
+            {/* Button */}
+            <div className="mb-4">
+              <Link href={favoriteToday.link || "#"} target="_blank" rel="noopener noreferrer">
+                <Button className="btn-success py-3 px-8 text-lg font-bold w-full">FÅ BONUS NU</Button>
+              </Link>
+            </div>
 
-                  {/* Button */}
-                  <div className="mb-1 sm:mb-3 flex-shrink-0">
-                    <Link href={site?.link || "#"} target="_blank" rel="noopener noreferrer">
-                      <Button className="tech-button py-1 sm:py-2.5 px-1 sm:px-4 text-xs font-bold w-full tech-subheading">
-                        CLAIM
-                      </Button>
-                    </Link>
-                  </div>
-
-                  {/* Terms - Hidden on mobile */}
-                  <div className="hidden sm:block text-xs text-tech-gray-700 leading-tight bg-tech-gray-50 border border-tech-gray-200 p-2 min-h-[70px] tech-body">
-                    {site?.terms}
-                  </div>
-                </div>
-              </div>
-            )
-          })}
+            {/* Terms */}
+            <div className="text-xs text-gray-700 leading-tight bg-gray-50 border border-gray-200 p-3 rounded">
+              {favoriteToday.terms}
+            </div>
+          </div>
         </div>
 
         {/* Footer */}
-        <div className="text-center py-1 sm:py-6 px-1 flex-shrink-0">
-          <div className="bg-tech-white/95 backdrop-blur-sm border-2 border-tech-gold p-1 sm:p-3 max-w-xs sm:max-w-xl mx-auto">
-            <p className="text-tech-black text-xs font-medium tech-subheading">18+ | Sikker Spil</p>
+        <div className="text-center py-4">
+          <div className="bg-white/95 backdrop-blur-sm border-2 border-gold-500 p-3 max-w-sm mx-auto rounded">
+            <p className="text-black text-sm font-medium">18+ | Sikker Spil | Vilkår gælder</p>
           </div>
         </div>
       </div>
