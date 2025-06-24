@@ -50,7 +50,7 @@ export function MainSiteHeader() {
                   <span className="text-brand-200"> DANSKE</span>
                   <span className="text-white"> SIDER</span>
                 </h1>
-                <p className="text-xs text-brand-200 font-medium">EKSPERT ANALYSE 2025</p>
+                <p className="text-xs text-brand-200 font-medium">EKSPERT ANALYSE</p>
               </div>
             </Link>
 
