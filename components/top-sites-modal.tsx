@@ -16,14 +16,15 @@ export function TopSitesModal({ bettingSites = [], casinoSites = [] }: Top3Modal
   const [favoriteToday, setFavoriteToday] = useState<BettingSite | null>(null)
 
   useEffect(() => {
-    // Перевіряємо чи є дані та чи вони завантажені
-    if (!Array.isArray(bettingSites) || bettingSites.length === 0) {
+    // Безпечна перевірка масиву
+    const safeBettingSites = Array.isArray(bettingSites) ? bettingSites : []
+
+    if (safeBettingSites.length === 0) {
       return
     }
 
-    // Безпечний вибір рандомного сайту
     try {
-      const availableSites = bettingSites.slice(0, Math.min(5, bettingSites.length))
+      const availableSites = safeBettingSites.slice(0, Math.min(5, safeBettingSites.length))
       if (availableSites.length > 0) {
         const randomIndex = Math.floor(Math.random() * availableSites.length)
         const selectedSite = availableSites[randomIndex]
