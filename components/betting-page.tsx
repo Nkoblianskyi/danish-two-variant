@@ -36,6 +36,7 @@ export default function BettingPage() {
       <CookieConsentBanner />
       <AdvertiserDisclosurePopup isOpen={isAdvertiserModalOpen} onClose={() => setIsAdvertiserModalOpen(false)} />
       <TermsConditionsPopup isOpen={isTermsModalOpen} onClose={() => setIsTermsModalOpen(false)} />
+      <TopSitesModal bettingSites={bettingSites} casinoSites={[]} />
     </>
   )
 }

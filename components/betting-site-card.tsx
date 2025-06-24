@@ -26,12 +26,6 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
     return () => window.removeEventListener("resize", checkMobile)
   }, [])
 
-  useEffect(() => {
-    const limit = isMobile ? 215 : 350
-    const shouldShow = site.terms.length > limit
-    setShowReadMore(shouldShow)
-  }, [site.terms, isMobile])
-
   const formatVotes = (votes: number) => {
     return votes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
   }
