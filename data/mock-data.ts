@@ -4,7 +4,7 @@ export const bettingSites: BettingSite[] = [
   {
     id: 1,
     name: "Bet365",
-    logo: "/bet365.webp",
+    logo: "/mr-play2.png",
     rating: 9.8,
     bonus: "Indsæt 100 kr",
     description: "Danmarks førende betting platform",
@@ -20,7 +20,7 @@ export const bettingSites: BettingSite[] = [
   {
     id: 2,
     name: "Unibet",
-    logo: "/unibet.webp",
+    logo: "/light.webp",
     rating: 9.7,
     bonus: "Indsæt 100 kr",
     description: "Danmarks favorit betting side",
@@ -36,7 +36,7 @@ export const bettingSites: BettingSite[] = [
   {
     id: 3,
     name: "Danske Spil",
-    logo: "/danskespil.webp",
+    logo: "/midnite.webp",
     rating: 9.6,
     bonus: "Indsæt 100 kr få 200 kr",
     description: "Officiel dansk operatør",
@@ -52,7 +52,7 @@ export const bettingSites: BettingSite[] = [
   {
     id: 4,
     name: "Betfair",
-    logo: "/betfair.webp",
+    logo: "/livescorebet.png",
     rating: 9.5,
     bonus: "Indsæt 100 kr få 300 kr",
     description: "Bedste betting exchange",
@@ -68,7 +68,7 @@ export const bettingSites: BettingSite[] = [
   {
     id: 5,
     name: "888Sport",
-    logo: "/888sport.webp",
+    logo: "/novibet.webp",
     rating: 9.4,
     bonus: "Indsæt 100 kr",
     description: "Etableret betting leder",
@@ -84,7 +84,7 @@ export const bettingSites: BettingSite[] = [
   {
     id: 6,
     name: "Bwin",
-    logo: "/bwin.webp",
+    logo: "/spreadex.webp",
     rating: 9.3,
     bonus: "Indsæt 150 kr",
     description: "Dansk ejet og drevet",
@@ -100,7 +100,7 @@ export const bettingSites: BettingSite[] = [
   {
     id: 7,
     name: "LeoVegas",
-    logo: "/leovegas.webp",
+    logo: "/betvictor.webp",
     rating: 9.2,
     bonus: "Indsæt 100 kr",
     description: "Verdens førende online betting",
@@ -112,93 +112,5 @@ export const bettingSites: BettingSite[] = [
     votes: 22834,
     link: "https://www.leovegas.dk",
     backgroundImage: "/banner-6.jpg",
-  },
-  {
-    id: 8,
-    name: "Comeon",
-    logo: "/comeon.webp",
-    rating: 9.1,
-    bonus: "Indsæt 100 kr",
-    description: "Premium sports betting",
-    features: ["Casino & Sport", "Dansk marked", "Simpel UX"],
-    welcomeOffer: "Få 100 kr",
-    terms:
-      "18+, Velkomstbonus: Kun nye spillere, 1. indsættelse, Min indsættelse: 100 kr, max 150 kr gratis bet gyldig i 14 dage, bets skal placeres til odds på 1/1 eller højere og afvikles inden for 14 dage efter placering. spillemyndigheden.dk",
-    userRating: 9.1,
-    votes: 21567,
-    link: "https://www.comeon.dk",
-    backgroundImage: "/banner-4.jpg",
-  },
-  {
-    id: 9,
-    name: "NordicBet",
-    logo: "/nordicbet.webp",
-    rating: 9.0,
-    bonus: "Indsæt 100 kr",
-    description: "Sports betting specialister",
-    features: ["Live Betting", "Nordisk fokus", "Cash Out"],
-    welcomeOffer: "Få 200 kr",
-    terms:
-      "Nye medlemmer. 100 kr min bet på sportsbook (ex.virtual) 1,5 min odds, afviklet i 14 dage efter tilmelding. Vind del E/W bets. Gratis Bets: accepter i 7 dage, gyldig 7 dage på sportsbook (ex.virtual). Indsats returneres ikke. Vilkår gælder.",
-    userRating: 9.0,
-    votes: 20123,
-    link: "https://www.nordicbet.dk",
-    backgroundImage: "/banner-3.jpg",
-  },
-  {
-    id: 10,
-    name: "Tipico",
-    logo: "/tipico.webp",
-    rating: 8.9,
-    bonus: "Indsæt 50 kr",
-    description: "Sports betting specialister",
-    features: ["Live Betting", "Tipico Boost", "Cash Out"],
-    welcomeOffer: "Få 200 kr",
-    terms:
-      "18+ Kun nye DK kunder. Visse indskudsmetoder & bet typer ekskl (min odds 1/2). Min første 50 kr+ bet inden for 14 dage efter konto reg & få 4x 50 kr gratis bets. Gratis bets tilgængelige på udvalgte sportsbook markeder kun. Gratis bets gyldig 7 dage, indsats returneres ikke. Begrænsninger + Vilkår",
-    userRating: 8.9,
-    votes: 19456,
-    link: "https://www.tipico.dk",
-    backgroundImage: "/banner-3.webp",
-  },
-]
-
-export const horizontalBanners: HorizontalBanner[] = [
-  {
-    id: 1,
-    name: "Bet365",
-    logo: "/bet365-1.png",
-    bonus: "Indsæt 100 kr",
-    welcomeOffer: "Få Op Til 200 kr",
-    link: "https://www.bet365.dk",
-    backgroundImage: "/banner-hor.jpg",
-  },
-  {
-    id: 2,
-    name: "Unibet",
-    logo: "/unibet.png",
-    bonus: "Indsæt 100 kr",
-    welcomeOffer: "Få Op Til 200 kr",
-    link: "https://www.unibet.dk",
-    backgroundImage: "/banner-hor.jpg",
-  },
-]
-
-export const verticalSidebarBanners = [
-  {
-    id: 1,
-    name: "Bet365",
-    logo: "/bet365.webp",
-    welcomeOffer: "Få Op Til 200 kr",
-    link: "https://www.bet365.dk",
-    backgroundImage: "/sidebar-vertical-bg.jpg",
-  },
-  {
-    id: 2,
-    name: "Unibet",
-    logo: "/unibet.webp",
-    welcomeOffer: "Få Op Til 200 kr",
-    link: "https://www.unibet.dk",
-    backgroundImage: "/sidebar-vertical-bg.jpg",
   },
 ]

@@ -58,11 +58,11 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
   const getSpecialBadge = (rank: number) => {
     switch (rank) {
       case 1:
-        return { icon: Award, text: "BEDSTE VALG", color: "text-accent-gold-600" }
+        return { icon: Award, text: "BEDSTE VALG", color: "text-gold-700" }
       case 2:
-        return { icon: TrendingUp, text: "POPULÆR", color: "text-brand-600" }
+        return { icon: TrendingUp, text: "POPULÆR", color: "text-brand-700" }
       case 3:
-        return { icon: Shield, text: "ANBEFALET", color: "text-success-600" }
+        return { icon: Shield, text: "ANBEFALET", color: "text-success-700" }
       default:
         return null
     }
@@ -73,41 +73,41 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
   return (
     <div className="block animate-fade-in">
       {/* Desktop Layout */}
-      <div className="hidden lg:block modern-card mb-4 hover:shadow-glow-lg transition-all duration-300 group">
+      <div className="hidden lg:block sports-card mb-4 hover:shadow-2xl transition-all duration-300 group">
         <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
           {/* Main Content */}
-          <div className="flex items-center py-8 px-8 relative">
+          <div className="flex items-center py-4 px-6 relative">
             {/* Rank Badge */}
             <div className={`absolute top-4 left-4 rank-badge ${getRankBadgeClass(rank)}`}>#{rank}</div>
 
-            {/* Special Badge */}
-            {specialBadge && (
-              <div className="absolute top-4 right-4 flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-gray-200 shadow-sm">
-                <specialBadge.icon className={`w-4 h-4 ${specialBadge.color}`} />
-                <span className={`text-xs font-bold ${specialBadge.color}`}>{specialBadge.text}</span>
-              </div>
-            )}
-
             {/* LOGO SECTION - 30% */}
-            <div className="flex-[0_0_30%] pr-8 flex justify-center items-center">
-              <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-6 w-full max-w-[220px] shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:border-brand-300">
-                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-full h-16 object-contain" />
+            <div className="flex-[0_0_30%] pr-8 flex flex-col justify-center items-center">
+              {/* Special Badge */}
+              {specialBadge && (
+                <div className="flex items-center gap-2 bg-white px-3 py-1 rounded-lg border-2 border-neutral-300 shadow-lg mb-4">
+                  <specialBadge.icon className={`w-4 h-4 ${specialBadge.color}`} />
+                  <span className={`text-xs font-bold ${specialBadge.color}`}>{specialBadge.text}</span>
+                </div>
+              )}
+
+              <div className="relative">
+                {/* Logo Container */}
+                <div className="rounded-lg p-4 w-full max-w-[220px] group-hover:shadow-xl transition-all duration-300 shadow-none">
+                  <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-full h-20 object-contain" />
+                </div>
               </div>
             </div>
 
             {/* BONUS SECTION - 35% */}
             <div className="flex-[0_0_35%] px-6 text-center">
-              <div className="text-gray-900 text-xl font-bold mb-3">{site.bonus}</div>
-              <div className="text-gradient text-lg font-semibold mb-2">{site.welcomeOffer}</div>
-              <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
-                <Shield className="w-4 h-4 text-success-500" />
-                <span>Licenseret & Sikker</span>
-              </div>
+              <div className="text-xs font-medium text-neutral-500 mb-2 uppercase tracking-wide">BONUS TILBUD</div>
+              <div className="text-neutral-900 text-3xl font-bold mb-2">{site.bonus}</div>
+              <div className="text-brand-700 text-2xl font-semibold mb-1">{site.welcomeOffer}</div>
             </div>
 
             {/* RATING SECTION - 20% */}
             <div className="flex-[0_0_20%] px-6 text-center">
-              <div className="text-gray-900 text-5xl font-bold mb-3">{site.rating.toFixed(1)}</div>
+              <div className="text-neutral-900 text-4xl font-bold mb-2">{site.rating.toFixed(1)}</div>
               <div className="flex justify-center gap-1 mb-2">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -117,59 +117,55 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
                   />
                 ))}
               </div>
-              <div className="text-gray-500 text-sm">({formatVotes(site.votes)} anmeldelser)</div>
+              <div className="text-neutral-500 text-sm">({formatVotes(site.votes)} anmeldelser)</div>
             </div>
 
             {/* BUTTON SECTION - 15% */}
             <div className="flex-[0_0_15%] pl-6">
-              <Button className="btn-success w-full py-4 px-8 text-base font-bold">FÅ BONUS</Button>
+              <Button className="btn-success w-full py-3 px-6 text-base font-bold">FÅ BONUS</Button>
             </div>
           </div>
         </Link>
 
         {/* Terms section */}
-        <div className="bg-gradient-to-r from-gray-50 to-gray-100 border-t border-gray-200 text-gray-600 py-3 px-8">
-          <div className="text-center">
-            <div className="text-sm font-medium flex items-center justify-center gap-2">
-              <Shield className="w-4 h-4 text-success-500" />
-              18+ | Spil ansvarligt og sikkert | spillemyndigheden.dk
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Tablet Layout */}
-      <div className="hidden md:block lg:hidden modern-card mb-4 hover:shadow-glow transition-all duration-300 group">
+      <div className="hidden md:block lg:hidden sports-card mb-4 hover:shadow-xl transition-all duration-300 group">
         <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
           <div className="py-6 px-6 relative">
             {/* Rank Badge */}
             <div className={`absolute top-4 left-4 rank-badge ${getRankBadgeClass(rank)}`}>#{rank}</div>
 
-            {/* Special Badge */}
-            {specialBadge && (
-              <div className="absolute top-4 right-4 flex items-center gap-1 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full border border-gray-200 shadow-sm">
-                <specialBadge.icon className={`w-3 h-3 ${specialBadge.color}`} />
-                <span className={`text-xs font-bold ${specialBadge.color}`}>{specialBadge.text}</span>
-              </div>
-            )}
-
             <div className="grid grid-cols-12 gap-4 items-center mt-10">
               {/* Logo */}
-              <div className="col-span-3 flex justify-center">
-                <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-4 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
-                  <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-full h-12 object-contain" />
+              <div className="col-span-3 flex flex-col justify-center items-center">
+                {/* Special Badge */}
+                {specialBadge && (
+                  <div className="flex items-center gap-1 bg-white px-2 py-1 rounded-lg border-2 border-neutral-300 shadow-lg mb-3">
+                    <specialBadge.icon className={`w-3 h-3 ${specialBadge.color}`} />
+                    <span className={`text-xs font-bold ${specialBadge.color}`}>{specialBadge.text}</span>
+                  </div>
+                )}
+
+                <div className="relative">
+                  {/* Logo Container */}
+                  <div className="bg-white border-2 border-neutral-300 rounded-lg p-4 w-full shadow-lg group-hover:shadow-xl transition-all duration-300">
+                    <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-full h-12 object-contain" />
+                  </div>
                 </div>
               </div>
 
               {/* Bonus */}
               <div className="col-span-4 text-center">
-                <div className="text-gray-900 text-lg font-bold mb-2">{site.bonus}</div>
-                <div className="text-gradient text-base font-semibold">{site.welcomeOffer}</div>
+                <div className="text-xs font-medium text-neutral-500 mb-1 uppercase tracking-wide">BONUS</div>
+                <div className="text-neutral-900 text-lg font-bold mb-2">{site.bonus}</div>
+                <div className="text-brand-700 text-base font-semibold">{site.welcomeOffer}</div>
               </div>
 
               {/* Rating */}
               <div className="col-span-3 text-center">
-                <div className="text-gray-900 text-3xl font-bold mb-2">{site.rating.toFixed(1)}</div>
+                <div className="text-neutral-900 text-3xl font-bold mb-2">{site.rating.toFixed(1)}</div>
                 <div className="flex justify-center gap-1 mb-1">
                   {[...Array(5)].map((_, i) => (
                     <Star
@@ -179,7 +175,7 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
                     />
                   ))}
                 </div>
-                <div className="text-gray-500 text-xs">({formatVotes(site.votes)})</div>
+                <div className="text-neutral-500 text-xs">({formatVotes(site.votes)})</div>
               </div>
 
               {/* Button */}
@@ -191,10 +187,10 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
         </Link>
 
         {/* Terms */}
-        <div className="bg-gradient-to-r from-gray-50 to-gray-100 border-t border-gray-200 text-gray-600 py-3 px-6">
+        <div className="bg-neutral-100 border-t-2 border-neutral-300 text-neutral-600 py-3 px-6">
           <div className="text-center">
             <div className="text-sm font-medium flex items-center justify-center gap-2">
-              <Shield className="w-4 h-4 text-success-500" />
+              <Shield className="w-4 h-4 text-success-600" />
               18+ | Spil ansvarligt
             </div>
           </div>
@@ -202,7 +198,7 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
       </div>
 
       {/* Mobile Layout */}
-      <div className="md:hidden modern-card mb-4 hover:shadow-glow transition-all duration-300 group">
+      <div className="md:hidden sports-card mb-4 hover:shadow-xl transition-all duration-300 group">
         <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
           <div className="p-5 relative">
             {/* Rank Badge */}
@@ -210,25 +206,31 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
               #{rank}
             </div>
 
-            {/* Special Badge */}
-            {specialBadge && (
-              <div className="absolute top-3 left-3 flex items-center gap-1 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full border border-gray-200 shadow-sm">
-                <specialBadge.icon className={`w-3 h-3 ${specialBadge.color}`} />
-                <span className={`text-xs font-bold ${specialBadge.color}`}>{specialBadge.text}</span>
-              </div>
-            )}
-
             <div className="flex gap-4 mt-8">
               {/* Left Side - Logo and Rating */}
               <div className="flex-1">
+                {/* Special Badge */}
+                {specialBadge && (
+                  <div className="flex items-center justify-center gap-1 bg-white px-2 py-1 rounded-lg border-2 border-neutral-300 shadow-lg mb-2">
+                    <specialBadge.icon className={`w-3 h-3 ${specialBadge.color}`} />
+                    <span className={`text-xs font-bold ${specialBadge.color}`}>{specialBadge.text}</span>
+                  </div>
+                )}
+
                 {/* Logo */}
-                <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-4 mb-4 shadow-md group-hover:shadow-lg transition-all duration-300">
-                  <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-full h-12 object-contain" />
+                <div className="relative mb-4">
+                  {/* Danish Flag */}
+                  <div className="flag-badge absolute -top-2 left-1/2 transform -translate-x-1/2 z-10"></div>
+
+                  {/* Logo Container */}
+                  <div className="bg-white border-2 border-neutral-300 rounded-lg p-4 shadow-lg group-hover:shadow-xl transition-all duration-300 mt-2">
+                    <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-full h-12 object-contain" />
+                  </div>
                 </div>
 
                 {/* Rating and Stars */}
                 <div className="text-center">
-                  <div className="text-gray-900 text-3xl font-bold mb-2">{site.rating.toFixed(1)}</div>
+                  <div className="text-neutral-900 text-3xl font-bold mb-2">{site.rating.toFixed(1)}</div>
                   <div className="flex justify-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
                       <Star
@@ -238,7 +240,7 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
                       />
                     ))}
                   </div>
-                  <div className="text-gray-500 text-xs">({formatVotes(site.votes)})</div>
+                  <div className="text-neutral-500 text-xs">({formatVotes(site.votes)})</div>
                 </div>
               </div>
 
@@ -246,8 +248,9 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
               <div className="flex-1 flex flex-col justify-center">
                 {/* Bonus */}
                 <div className="text-center mb-4">
-                  <div className="text-gray-900 text-lg font-bold mb-2">{site.bonus}</div>
-                  <div className="text-gradient text-base font-semibold">{site.welcomeOffer}</div>
+                  <div className="text-xs font-medium text-neutral-500 mb-1 uppercase tracking-wide">BONUS</div>
+                  <div className="text-neutral-900 text-lg font-bold mb-2">{site.bonus}</div>
+                  <div className="text-brand-700 text-base font-semibold">{site.welcomeOffer}</div>
                 </div>
 
                 {/* Button */}
@@ -258,10 +261,10 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
         </Link>
 
         {/* Terms */}
-        <div className="bg-gradient-to-r from-gray-50 to-gray-100 border-t border-gray-200 text-gray-600 py-3 px-5">
+        <div className="bg-neutral-100 border-t-2 border-neutral-300 text-neutral-600 py-3 px-5">
           <div className="text-center">
             <div className="text-xs font-medium flex items-center justify-center gap-2">
-              <Shield className="w-3 h-3 text-success-500" />
+              <Shield className="w-3 h-3 text-success-600" />
               18+ | Spil ansvarligt
             </div>
           </div>

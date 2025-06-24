@@ -1,5 +1,5 @@
-import IrishBettingPage from "../components/irish-betting-page"
+import BettingPage from "../components/betting-page"
 
 export default function Page() {
-  return <IrishBettingPage />
+  return <BettingPage />
 }

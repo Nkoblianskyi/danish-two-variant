@@ -6,7 +6,7 @@ import type { BettingSite } from "../types"
 
 export function BettingSitesList() {
   return (
-    <div className="space-y-1 w-full max-w-[1580px] mx-auto">
+    <div className="space-y-1 w-full">
       {bettingSites.map((site: BettingSite, index: number) => (
         <div key={site.id} className="w-full">
           <BettingSiteCard site={site} rank={index + 1} />

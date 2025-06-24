@@ -219,19 +219,3 @@ export default function ResponsibleGamingPage() {
             <li>• Giver gennemsigtige vilkår og betingelser</li>
             <li>• Støtter ansvarlige spilorganisationer</li>
           </ul>
-
-          <div className="text-center mt-8 p-6 bg-gray-50 rounded-lg">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Har Du Brug for Hjælp Lige Nu?</h3>
-            <p className="text-gray-700 mb-4">
-              Hvis du eller nogen du kender har brug for øjeblikkelig støtte, vent ikke. Hjælp er tilgængelig 24/7.
-            </p>
-            <div className="space-y-2">
-              <p className="text-lg font-semibold text-green-600">National Spil Hjælpelinje: 70 20 12 12</p>
-              <p className="text-sm text-gray-600">Gratis, fortrolig og tilgængelig 24 timer i døgnet</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}

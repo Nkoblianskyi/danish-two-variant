@@ -47,7 +47,7 @@ export function CookieConsentBanner() {
             {/* Icon and Content */}
             <div className="flex items-start gap-3 flex-1">
               <div className="flex-shrink-0 mt-1">
-                <Cookie className="w-6 h-6 text-green-600" />
+                
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-gray-900 mb-1">Vi bruger cookies</h3>

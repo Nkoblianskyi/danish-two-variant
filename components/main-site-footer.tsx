@@ -78,9 +78,9 @@ export function MainSiteFooter() {
             </div>
           </div>
           <div className="mt-4 text-center">
-            <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-4">
+            <div className="rounded-lg p-4 bg-transparent border-[]">
               <p className="text-red-300 font-bold text-sm mb-1 flex items-center justify-center gap-2">
-                <Shield className="w-4 h-4" />
+                
                 18+ | Spil kan være vanedannende — Spil sikkert
               </p>
               <p className="text-red-200 text-xs">

@@ -23,7 +23,7 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
-    --radius: 0.75rem;
+    --radius: 0.5rem;
   }
 
   .dark {
@@ -60,125 +60,117 @@
   }
 }
 
-/* Modern Utility Classes */
-.modern-card {
-  @apply bg-white/95 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300;
-  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+/* Sports Card Styles */
+.sports-card {
+  @apply bg-white border border-neutral-300 shadow-lg hover:shadow-xl transition-all duration-300;
+  background-image: linear-gradient(45deg, rgba(34, 197, 94, 0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(34, 197, 94, 0.03) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(34, 197, 94, 0.03) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(34, 197, 94, 0.03) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 }
 
-.modern-card:hover {
-  @apply shadow-glow transform -translate-y-1;
+.sports-card:hover {
+  @apply transform -translate-y-1 border-brand-400;
 }
 
-/* Modern Button Styles */
+/* Sports Button Styles */
 .btn-primary {
-  @apply bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-glow transition-all duration-300 transform hover:scale-105;
+  @apply bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300;
 }
 
 .btn-success {
-  @apply bg-gradient-to-r from-success-500 to-success-600 hover:from-success-600 hover:to-success-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-success transition-all duration-300 transform hover:scale-105;
+  @apply bg-success-600 hover:bg-success-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300;
 }
 
 .btn-gold {
-  @apply bg-gradient-to-r from-accent-gold-400 to-accent-gold-500 hover:from-accent-gold-500 hover:to-accent-gold-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-gold transition-all duration-300 transform hover:scale-105;
+  @apply bg-gold-500 hover:bg-gold-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300;
 }
 
-/* Modern Header Styles */
-.modern-header {
-  @apply bg-gradient-to-r from-brand-800 via-brand-700 to-brand-800 backdrop-blur-md border-b border-brand-600/30;
-  background-size: 200% 100%;
-  animation: gradient-x 6s ease infinite;
+/* Sports Header Styles */
+.sports-header {
+  @apply bg-brand-800 border-b-4 border-success-500;
 }
 
-/* Modern Badge Styles */
+/* Sports Badge Styles */
 .rank-badge {
-  @apply inline-flex items-center justify-center px-3 py-1 rounded-full text-sm font-bold shadow-lg;
+  @apply inline-flex items-center justify-center px-3 py-1 rounded-lg text-sm font-bold shadow-lg;
 }
 
 .rank-1 {
-  @apply bg-gradient-to-r from-accent-gold-400 to-accent-gold-500 text-white shadow-gold;
+  @apply bg-gold-500 text-white border-2 border-gold-600;
 }
 
 .rank-2 {
-  @apply bg-gradient-to-r from-gray-400 to-gray-500 text-white;
+  @apply bg-neutral-400 text-white border-2 border-neutral-500;
 }
 
 .rank-3 {
-  @apply bg-gradient-to-r from-amber-600 to-amber-700 text-white;
+  @apply bg-gold-600 text-white border-2 border-gold-700;
 }
 
 .rank-default {
-  @apply bg-gradient-to-r from-brand-500 to-brand-600 text-white;
+  @apply bg-brand-500 text-white border-2 border-brand-600;
 }
 
-/* Modern Rating Stars */
+/* Sports Rating Stars */
 .rating-star {
   @apply transition-all duration-200;
 }
 
 .rating-star.filled {
-  @apply text-accent-gold-400 drop-shadow-sm;
+  @apply text-gold-500;
 }
 
 .rating-star.empty {
-  @apply text-gray-300;
+  @apply text-neutral-300;
 }
 
-/* Modern Modal Styles */
-.modern-modal {
-  @apply bg-white/95 backdrop-blur-xl border border-gray-200/50 shadow-2xl rounded-2xl overflow-hidden;
-}
-
-.modal-header {
-  @apply bg-gradient-to-r from-brand-600 to-brand-700 text-white p-6;
-}
-
-.modal-content {
-  @apply p-6 bg-gradient-to-b from-white to-gray-50/50;
-}
-
-/* Glow Effects */
-.glow-blue {
-  @apply shadow-glow;
-}
-
-.glow-gold {
-  @apply shadow-gold;
-}
-
-.glow-success {
-  @apply shadow-success;
-}
-
-/* Animated Backgrounds */
-.animated-bg {
-  background: linear-gradient(-45deg, #0ea5e9, #0284c7, #0369a1, #075985);
-  background-size: 400% 400%;
-  animation: gradient-x 15s ease infinite;
-}
-
-/* Modern Typography */
+/* Sports Typography */
 .heading-primary {
-  @apply text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-brand-600 to-brand-800 bg-clip-text text-transparent;
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold text-brand-800;
 }
 
 .heading-secondary {
-  @apply text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-800;
+  @apply text-2xl md:text-3xl lg:text-4xl font-semibold text-neutral-800;
 }
 
 .text-gradient {
-  @apply bg-gradient-to-r from-brand-600 to-brand-800 bg-clip-text text-transparent;
+  @apply text-brand-700;
 }
 
-/* Loading Animations */
-.loading-pulse {
-  @apply animate-pulse-slow;
+/* Flag Styles */
+.flag-badge {
+  @apply w-6 h-4 rounded-sm shadow-sm border border-neutral-300;
+  background: linear-gradient(
+    to bottom,
+    #c8102e 0%,
+    #c8102e 33.33%,
+    #ffffff 33.33%,
+    #ffffff 66.66%,
+    #22c55e 66.66%,
+    #22c55e 100%
+  );
+}
+
+/* Sports Modal Styles */
+.sports-modal {
+  @apply bg-white border-2 border-brand-600 shadow-2xl rounded-lg overflow-hidden;
+}
+
+.sports-modal-header {
+  @apply bg-brand-700 text-white p-6 border-b-4 border-success-500;
+}
+
+.sports-modal-content {
+  @apply p-6 bg-white;
 }
 
 /* Responsive Utilities */
 @media (max-width: 768px) {
-  .modern-card {
-    @apply shadow-md hover:shadow-lg;
+  .sports-card {
+    @apply shadow-lg;
   }
 
   .btn-primary,
