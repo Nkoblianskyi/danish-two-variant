@@ -107,12 +107,6 @@ export function MainSiteFooter() {
               <p className="text-red-300 font-bold text-sm mb-1 flex items-center justify-center gap-2">
                 18+ | Spil kan være vanedannende — Spil sikkert
               </p>
-              <p className="text-red-200 text-xs">
-                Hvis du har et spilproblem, søg hjælp.{" "}
-                <Link href="/responsible-gaming" className="underline hover:text-white">
-                  Få støtte
-                </Link>
-              </p>
             </div>
           </div>
         </div>

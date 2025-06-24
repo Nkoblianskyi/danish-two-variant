@@ -1,4 +1,4 @@
-import type { BettingSite, HorizontalBanner } from "../types"
+import type { BettingSite } from "../types"
 
 export const bettingSites: BettingSite[] = [
   {
@@ -10,12 +10,8 @@ export const bettingSites: BettingSite[] = [
     description: "Danmarks førende betting platform",
     features: ["Live Streaming", "Statistikker", "Cash Out"],
     welcomeOffer: "Få 100 kr",
-    terms:
-      "18+ | Kun nye danske kunder | Max 100 kr gratis bet | Min indsats 100 kr | Min odds 1,70 | Gratis bet indsats returneres ikke | Visse markeder/sports/betalingsmetoder begrænsninger gælder | Kvalificerende bet skal placeres inden for 30 dage | Gratis bet gyldig i 30 dage | Vilkår & Generelle kampagnevilkår gælder",
-    userRating: 9.8,
     votes: 31245,
     link: "https://www.bet365.dk",
-    backgroundImage: "/banner-3.jpg",
   },
   {
     id: 2,
@@ -26,12 +22,8 @@ export const bettingSites: BettingSite[] = [
     description: "Danmarks favorit betting side",
     features: ["Konkurrencedygtige odds", "Cash Out", "Bet Builder"],
     welcomeOffer: "Få 200 kr",
-    terms:
-      "18+ Tilmeld dig & sats 100 kr+ (odds 2,00+) på ethvert marked. Ingen cashout. Få 200 kr i gratis bets til specificerede markeder, 7 dages udløb. Tilbud gyldig indtil 18:10 CET d. 21.06.25. Klik for vilkår. spillemyndigheden.dk",
-    userRating: 9.7,
     votes: 28934,
     link: "https://www.unibet.dk",
-    backgroundImage: "/banner-10.jpg",
   },
   {
     id: 3,
@@ -42,12 +34,8 @@ export const bettingSites: BettingSite[] = [
     description: "Officiel dansk operatør",
     features: ["Dansk fokus", "Moderne interface", "Hurtige udbetalinger"],
     welcomeOffer: "50 Free Spins",
-    terms:
-      "Sats 100 kr i alt på pre-match akkumulatorer med 4+ ben, min odds 4,0 for at kvalificere. Få 200 kr krediteret som 4x 50 kr gratis bets + 50 Free Spins. Vilkår gælder. spillemyndigheden.dk",
-    userRating: 9.6,
     votes: 27156,
     link: "https://www.danskespil.dk",
-    backgroundImage: "/banner-3.jpg",
   },
   {
     id: 4,
@@ -58,12 +46,8 @@ export const bettingSites: BettingSite[] = [
     description: "Bedste betting exchange",
     features: ["Betting Exchange", "Danske markeder", "Lokal support"],
     welcomeOffer: "100 kr Casino Bonus",
-    terms:
-      "Kun nye kunder: Indsæt 100 kr+ og placer et 100 kr+ bet til odds på 2,0+ for at modtage 300 kr i gratis bets (gyldig 7 dage) + 100 kr Casino Bonus (accepter inden for 14 dage, gyldig 3 dage). Ekskluderer Skrill, Neteller, PayPal, Paysafe, forudbetalte kort. Kun Danmark online, 18+. Vilkår gælder.",
-    userRating: 9.5,
     votes: 25789,
     link: "https://www.betfair.dk",
-    backgroundImage: "/banner-6.jpg",
   },
   {
     id: 5,
@@ -74,12 +58,8 @@ export const bettingSites: BettingSite[] = [
     description: "Etableret betting leder",
     features: ["Hurtige udbetalinger", "Bedste odds", "Live Streaming"],
     welcomeOffer: "Få 200 kr",
-    terms:
-      "Kun nye kunder. Registrer dig, indsæt med Debit Card, og placer første bet 100 kr+ til lige odds (2,0)+ på Sport inden for 7 dage for at få 3 x 100 kr i Sports gratis bets & 2 x 100 kr i Acca gratis bets inden for 10 timer efter afvikling. 7-dages udløb. Berettigelsesundtagelser & vilkår gælder.",
-    userRating: 9.4,
     votes: 24567,
     link: "https://www.888sport.dk",
-    backgroundImage: "banner-3.jpg",
   },
   {
     id: 6,
@@ -90,12 +70,8 @@ export const bettingSites: BettingSite[] = [
     description: "Dansk ejet og drevet",
     features: ["Dansk fokus", "Bedste priser", "Mobil App"],
     welcomeOffer: "Få 100 kr",
-    terms:
-      "18+, Velkomstbonus: Kun nye spillere, 1. indsættelse, Min indsættelse: 150 kr, max 100 kr gratis bet gyldig i 14 dage, bets skal placeres til odds på 1/1 eller højere og afvikles inden for 14 dage efter placering.",
-    userRating: 9.3,
     votes: 23412,
     link: "https://www.bwin.dk",
-    backgroundImage: "/banner-10.jpg",
   },
   {
     id: 7,
@@ -106,11 +82,7 @@ export const bettingSites: BettingSite[] = [
     description: "Verdens førende online betting",
     features: ["Live Streaming", "In-Play", "Cash Out"],
     welcomeOffer: "Få 600 kr",
-    terms:
-      "Spread betting tab kan overstige indskud. 18+ spillemyndigheden.dk. Placer et 100 kr fast odds enkelt eller 100 kr each-way bet til minimum odds på 1/2 og få 3 x 100 kr gratis fast odds bets, 3 x 50 kr Total Goals fodbold spread bets og 3 x 50 kr Winning Favourites spread bets og et 10 kr racing Race Index spread bet.",
-    userRating: 9.2,
     votes: 22834,
     link: "https://www.leovegas.dk",
-    backgroundImage: "/banner-6.jpg",
   },
 ]

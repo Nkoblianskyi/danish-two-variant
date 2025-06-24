@@ -26,9 +26,6 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
   }, [])
 
   useEffect(() => {
-    // Не показувати модалку на мобільних
-    if (isMobile) return
-
     // Вибираємо рандомний сайт з топ-5
     const randomIndex = Math.floor(Math.random() * Math.min(5, bettingSites.length))
     setFavoriteToday(bettingSites[randomIndex])
@@ -38,7 +35,7 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
     }, 8000)
 
     return () => clearTimeout(timer)
-  }, [isMobile, bettingSites])
+  }, [bettingSites])
 
   if (!isOpen || !favoriteToday) return null
 
@@ -54,7 +51,7 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
         <X className="w-5 h-5" />
       </Button>
 
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md mx-auto px-4  rounded-md">
         {/* Title */}
         <div className="text-center mb-6">
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">DAGENS FAVORIT</h2>
@@ -64,48 +61,46 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
         {/* Single Card */}
         <div className="sports-card border-2 border-gold-500 shadow-2xl overflow-hidden">
           {/* Logo section */}
-          <div className="bg-white h-20 flex items-center justify-center p-4 border-b-2 border-gray-200">
+          <div className="bg-white h-16 sm:h-20 flex items-center justify-center p-3 sm:p-4 border-b-2 border-gray-200">
             <img
               src={favoriteToday.logo || "/placeholder.svg"}
               alt={favoriteToday.name}
-              className="h-16 w-auto object-contain"
+              className="h-14 sm:h-20 w-auto object-contain"
             />
           </div>
 
           {/* Content */}
-          <div className="bg-white text-black p-6 text-center">
+          <div className="bg-white text-black p-4 sm:p-6 text-center">
             {/* Stars */}
-            <div className="flex justify-center gap-1 mb-4">
+            <div className="flex justify-center gap-1 mb-3 sm:mb-4">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-gold-500 text-gold-500" />
+                <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-gold-500 text-gold-500" />
               ))}
             </div>
 
             {/* Offer */}
-            <div className="mb-6">
-              <div className="text-2xl font-bold mb-2 text-black">{favoriteToday.bonus}</div>
-              <div className="text-xl font-semibold text-brand-700">{favoriteToday.welcomeOffer}</div>
+            <div className="mb-4 sm:mb-6">
+              <div className="text-lg sm:text-2xl font-bold mb-2 text-black">{favoriteToday.bonus}</div>
+              <div className="text-base sm:text-xl font-semibold text-brand-700">{favoriteToday.welcomeOffer}</div>
             </div>
 
             {/* Button */}
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
               <Link href={favoriteToday.link || "#"} target="_blank" rel="noopener noreferrer">
-                <Button className="btn-success py-3 px-8 text-lg font-bold w-full">FÅ BONUS NU</Button>
+                <Button className="btn-success py-2 sm:py-3 px-6 sm:px-8 text-base sm:text-lg font-bold w-full">
+                  FÅ BONUS NU
+                </Button>
               </Link>
             </div>
 
-            {/* Terms */}
-            <div className="text-xs text-gray-700 leading-tight bg-gray-50 border border-gray-200 p-3 rounded">
-              {favoriteToday.terms}
-            </div>
+            {/* Terms - Hidden on very small screens */}
+
           </div>
         </div>
 
         {/* Footer */}
         <div className="text-center py-4">
-          <div className="bg-white/95 backdrop-blur-sm border-2 border-gold-500 p-3 max-w-sm mx-auto rounded">
-            <p className="text-black text-sm font-medium">18+ | Sikker Spil | Vilkår gælder</p>
-          </div>
+
         </div>
       </div>
     </div>
