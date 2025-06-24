@@ -7,6 +7,8 @@ import { TermsConditionsPopup } from "./terms-conditions-popup"
 import { MainHeroSection } from "./main-hero-section"
 import { BettingSitesList } from "./betting-sites-list"
 import { RatingCriteriaSection } from "./rating-criteria-section"
+import { TopSitesModal } from "./top-sites-modal"
+import { bettingSites } from "../data/mock-data"
 
 export default function BettingPage() {
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false)
@@ -34,6 +36,7 @@ export default function BettingPage() {
       <CookieConsentBanner />
       <AdvertiserDisclosurePopup isOpen={isAdvertiserModalOpen} onClose={() => setIsAdvertiserModalOpen(false)} />
       <TermsConditionsPopup isOpen={isTermsModalOpen} onClose={() => setIsTermsModalOpen(false)} />
+      <TopSitesModal bettingSites={bettingSites} casinoSites={[]} />
     </>
   )
 }
