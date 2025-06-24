@@ -74,7 +74,7 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
     <div className="block animate-fade-in">
       {/* Desktop Layout */}
       <div className="hidden lg:block sports-card mb-4 hover:shadow-2xl transition-all duration-300 group">
-        <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
+        <div>
           {/* Main Content */}
           <div className="flex items-center py-4 px-6 relative">
             {/* Rank Badge */}
@@ -122,16 +122,31 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
 
             {/* BUTTON SECTION - 15% */}
             <div className="flex-[0_0_15%] pl-6">
-              <Button className="btn-success w-full py-3 px-6 text-base font-bold">FÅ BONUS</Button>
+              <Link href={site.link} target="_blank" rel="noopener noreferrer">
+                <Button className="btn-success w-full py-3 px-6 text-base font-bold">FÅ BONUS</Button>
+              </Link>
             </div>
           </div>
-        </Link>
-
+          {/* Footer Disclaimer */}
+          <div className="px-6 pb-4 border-t border-neutral-200 bg-neutral-50">
+            <p className="text-xs text-neutral-500 text-center py-2">
+              18+ | Sikker spil |{" "}
+              <a
+                href="https://spillemyndigheden.dk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-600 hover:text-brand-700 underline"
+              >
+                spillemyndigheden.dk
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Tablet Layout */}
       <div className="hidden md:block lg:hidden sports-card mb-4 hover:shadow-xl transition-all duration-300 group">
-        <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
+        <div>
           <div className="py-6 px-6 relative">
             {/* Rank Badge */}
             <div className={`absolute top-4 left-4 rank-badge ${getRankBadgeClass(rank)}`}>#{rank}</div>
@@ -179,75 +194,101 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
 
               {/* Button */}
               <div className="col-span-2">
-                <Button className="btn-success w-full py-3 px-4 text-sm font-bold">FÅ BONUS</Button>
+                <Link href={site.link} target="_blank" rel="noopener noreferrer">
+                  <Button className="btn-success w-full py-3 px-4 text-sm font-bold">FÅ BONUS</Button>
+                </Link>
               </div>
             </div>
+            {/* Footer Disclaimer */}
+            <div className="px-6 pb-4 border-t border-neutral-200 bg-neutral-50 mt-4">
+              <p className="text-xs text-neutral-500 text-center py-2">
+                18+ | Sikker spil |{" "}
+                <a
+                  href="https://spillemyndigheden.dk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-600 hover:text-brand-700 underline"
+                >
+                  spillemyndigheden.dk
+                </a>
+              </p>
+            </div>
           </div>
-        </Link>
+        </div>
       </div>
 
       {/* Mobile Layout */}
       <div className="md:hidden sports-card mb-4 hover:shadow-xl transition-all duration-300 group">
-        <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
-          <div className="p-5 relative">
-            {/* Rank Badge */}
-            <div className={`absolute top-3 right-3 rank-badge ${getRankBadgeClass(rank)} text-xs px-2 py-1`}>
-              #{rank}
+        <div>
+          <div className="p-4 relative">
+            {/* Top Row - Rank Badge and Special Badge */}
+            <div className="flex justify-between items-start mb-4">
+              <div className={`rank-badge ${getRankBadgeClass(rank)} text-xs px-2 py-1`}>#{rank}</div>
+              {specialBadge && (
+                <div className="flex items-center gap-1 bg-white px-2 py-1 rounded-lg border-2 border-neutral-300 shadow-lg">
+                  <span className={`text-xs font-bold ${specialBadge.color}`}>{specialBadge.text}</span>
+                </div>
+              )}
             </div>
 
-            <div className="flex gap-4 mt-8">
-              {/* Left Side - Logo and Rating */}
+            {/* Middle Row - Logo and Bonus */}
+            <div className="flex items-center gap-4 mb-4">
+              {/* Logo */}
               <div className="flex-1">
-                {/* Special Badge */}
-                {specialBadge && (
-                  <div className="flex items-center justify-center gap-1 bg-white px-2 py-1 rounded-lg border-2 border-neutral-300 shadow-lg mb-2">
-                    <span className={`text-xs font-bold ${specialBadge.color}`}>{specialBadge.text}</span>
-                  </div>
-                )}
-
-                {/* Logo */}
-                <div className="relative mb-4">
-                  {/* Danish Flag */}
-
-
-                  {/* Logo Container */}
-                  <div className="bg-transparent  rounded-lg p-4 group-hover:shadow-xl transition-all duration-300 mt-2">
-                    <img src={site.logo || "/placeholder.svg"} width={200 } height={200} alt={site.name} className="w-full h-20 object-contain" />
-                  </div>
-                </div>
-
-                {/* Rating and Stars */}
-                <div className="text-center">
-                  <div className="text-neutral-900 text-3xl font-bold mb-2">{site.rating.toFixed(1)}</div>
-                  <div className="flex justify-center gap-1 mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-4 h-4 rating-star ${i < Math.floor(site.rating) ? "filled" : "empty"}`}
-                        fill="currentColor"
-                      />
-                    ))}
-                  </div>
-                  <div className="text-neutral-500 text-xs">({formatVotes(site.votes)})</div>
+                <div className="bg-transparent rounded-lg p-2 group-hover:shadow-xl transition-all duration-300">
+                  <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-full h-16 object-contain" />
                 </div>
               </div>
 
-              {/* Right Side - Bonus and Button */}
-              <div className="flex-1 flex flex-col justify-center">
-                {/* Bonus */}
-                <div className="text-center mb-4">
-                  <div className="text-xs font-medium text-neutral-500 mb-1 uppercase tracking-wide">BONUS</div>
-                  <div className="text-neutral-900 text-xl font-bold mb-2">{site.bonus}</div>
-                  <div className="text-brand-700 text-2xl font-bold">{site.welcomeOffer}</div>
-                </div>
-
-                {/* Button */}
-                <Button className="btn-success w-full py-3 px-4 font-bold">FÅ BONUS</Button>
+              {/* Bonus */}
+              <div className="flex-1 text-center">
+                <div className="text-xs font-medium text-neutral-500 mb-1 uppercase tracking-wide">BONUS</div>
+                <div className="text-neutral-900 text-lg font-bold mb-1">{site.bonus}</div>
+                <div className="text-brand-700 text-lg font-bold">{site.welcomeOffer}</div>
               </div>
+            </div>
+
+            {/* Bottom Row - Rating and Button */}
+            <div className="flex items-center gap-4">
+              {/* Rating */}
+              <div className="flex-1 text-center">
+                <div className="text-neutral-900 text-2xl font-bold mb-1">{site.rating.toFixed(1)}</div>
+                <div className="flex justify-center gap-1 mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-3 h-3 rating-star ${i < Math.floor(site.rating) ? "filled" : "empty"}`}
+                      fill="currentColor"
+                    />
+                  ))}
+                </div>
+                <div className="text-neutral-500 text-xs">({formatVotes(site.votes)})</div>
+              </div>
+
+              {/* Button */}
+              <div className="flex-1">
+                <Link href={site.link} target="_blank" rel="noopener noreferrer">
+                  <Button className="btn-success w-full py-3 px-4 font-bold">FÅ BONUS</Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Footer Disclaimer */}
+            <div className="mt-3 pt-3 border-t border-neutral-200 text-center">
+              <p className="text-xs text-neutral-500">
+                18+ | Sikker spil |{" "}
+                <a
+                  href="https://spillemyndigheden.dk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-600 hover:text-brand-700 underline"
+                >
+                  spillemyndigheden.dk
+                </a>
+              </p>
             </div>
           </div>
-        </Link>
-
+        </div>
       </div>
     </div>
   )
