@@ -26,6 +26,9 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
   }, [])
 
   useEffect(() => {
+    // Перевіряємо чи є дані
+    if (!bettingSites || bettingSites.length === 0) return
+
     // Вибираємо рандомний сайт з топ-5
     const randomIndex = Math.floor(Math.random() * Math.min(5, bettingSites.length))
     setFavoriteToday(bettingSites[randomIndex])
@@ -37,7 +40,8 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
     return () => clearTimeout(timer)
   }, [bettingSites])
 
-  if (!isOpen || !favoriteToday) return null
+  // Не показуємо модалку якщо немає даних
+  if (!isOpen || !favoriteToday || !bettingSites || bettingSites.length === 0) return null
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4">
