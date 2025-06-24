@@ -11,37 +11,42 @@ interface Top3ModalProps {
   casinoSites: BettingSite[]
 }
 
-export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
+export function TopSitesModal({ bettingSites = [], casinoSites = [] }: Top3ModalProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [favoriteToday, setFavoriteToday] = useState<BettingSite | null>(null)
-  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
+    // Перевіряємо чи є дані та чи вони завантажені
+    if (!Array.isArray(bettingSites) || bettingSites.length === 0) {
+      return
     }
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
 
-  useEffect(() => {
-    // Перевіряємо чи є дані
-    if (!bettingSites || bettingSites.length === 0) return
+    // Безпечний вибір рандомного сайту
+    try {
+      const availableSites = bettingSites.slice(0, Math.min(5, bettingSites.length))
+      if (availableSites.length > 0) {
+        const randomIndex = Math.floor(Math.random() * availableSites.length)
+        const selectedSite = availableSites[randomIndex]
 
-    // Вибираємо рандомний сайт з топ-5
-    const randomIndex = Math.floor(Math.random() * Math.min(5, bettingSites.length))
-    setFavoriteToday(bettingSites[randomIndex])
+        if (selectedSite && selectedSite.id) {
+          setFavoriteToday(selectedSite)
 
-    const timer = setTimeout(() => {
-      setIsOpen(true)
-    }, 8000)
+          const timer = setTimeout(() => {
+            setIsOpen(true)
+          }, 8000)
 
-    return () => clearTimeout(timer)
+          return () => clearTimeout(timer)
+        }
+      }
+    } catch (error) {
+      console.error("Error selecting favorite site:", error)
+    }
   }, [bettingSites])
 
-  // Не показуємо модалку якщо немає даних
-  if (!isOpen || !favoriteToday || !bettingSites || bettingSites.length === 0) return null
+  // Не показуємо модалку якщо немає даних або вибраного сайту
+  if (!isOpen || !favoriteToday) {
+    return null
+  }
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4">
@@ -68,7 +73,7 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
           <div className="bg-white h-20 sm:h-24 flex items-center justify-center p-4 sm:p-6 border-b-2 border-gray-200">
             <img
               src={favoriteToday.logo || "/placeholder.svg"}
-              alt={favoriteToday.name}
+              alt={favoriteToday.name || "Betting Site"}
               className="h-16 sm:h-20 w-auto object-contain"
             />
           </div>
@@ -84,8 +89,12 @@ export function TopSitesModal({ bettingSites, casinoSites }: Top3ModalProps) {
 
             {/* Offer */}
             <div className="mb-4 sm:mb-6">
-              <div className="text-lg sm:text-2xl font-bold mb-2 text-black">{favoriteToday.bonus}</div>
-              <div className="text-base sm:text-xl font-semibold text-brand-700">{favoriteToday.welcomeOffer}</div>
+              <div className="text-lg sm:text-2xl font-bold mb-2 text-black">
+                {favoriteToday.bonus || "Bonus tilbud"}
+              </div>
+              <div className="text-base sm:text-xl font-semibold text-brand-700">
+                {favoriteToday.welcomeOffer || "Velkommen bonus"}
+              </div>
             </div>
 
             {/* Button */}
