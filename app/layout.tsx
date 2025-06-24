@@ -5,7 +5,7 @@ import { MainSiteFooter } from "../components/main-site-footer"
 import { MainSiteHeader } from "../components/main-site-header"
 
 export const metadata: Metadata = {
-  title: "Bedste Danske Betting Sider - Top Danske Betting Sider 2025",
+  title: "Bedste Danske Betting Sider - Top Danske Betting Sider",
   description:
     "Opdag Danmarks bedste betting sider med ekspert anmeldelser, eksklusive bonusser og omfattende sammenligninger. Find din perfekte bookmaker i dag.",
   keywords: "danske betting sider, bookmakere Danmark, betting bonusser, sports betting Danmark",
