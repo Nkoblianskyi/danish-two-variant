@@ -127,7 +127,6 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
           </div>
         </Link>
 
-        {/* Terms section */}
       </div>
 
       {/* Tablet Layout */}
@@ -185,16 +184,6 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
             </div>
           </div>
         </Link>
-
-        {/* Terms */}
-        <div className="bg-neutral-100 border-t-2 border-neutral-300 text-neutral-600 py-3 px-6">
-          <div className="text-center">
-            <div className="text-sm font-medium flex items-center justify-center gap-2">
-              <Shield className="w-4 h-4 text-success-600" />
-              18+ | Spil ansvarligt
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Mobile Layout */}
@@ -259,15 +248,6 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
           </div>
         </Link>
 
-        {/* Terms */}
-        <div className="bg-neutral-100 border-t-2 border-neutral-300 text-neutral-600 py-3 px-5">
-          <div className="text-center">
-            <div className="text-xs font-medium flex items-center justify-center gap-2">
-              <Shield className="w-3 h-3 text-success-600" />
-              18+ | Spil ansvarligt
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   )

@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Shield } from "lucide-react"
 
 export function MainSiteFooter() {
   return (
@@ -54,12 +53,37 @@ export function MainSiteFooter() {
           {/* Responsible Gaming */}
           <div>
             <h4 className="text-sm font-bold mb-4 text-gray-200">ANSVARLIGT SPIL</h4>
-            <div className="space-y-3">
+            <div className="flex flex-wrap gap-4 justify-start">
               <Link href="https://spillemyndigheden.dk/" className="block">
-                <img src="/spillemyndigheden.png" alt="Spillemyndigheden" className="h-8 object-contain" />
+                <img
+                  src="/spillemyn.svg"
+                  alt="Spillemyndigheden"
+                  className="h-12 object-contain hover:opacity-80 transition-opacity bg-white rounded-md p-1"
+                />
+              </Link>
+              <Link href="https://stopspillet.dk/" className="block">
+                <img
+                  src="/stopsillet.svg"
+                  alt="StopSpillet"
+                  className="h-12 object-contain hover:opacity-80 transition-opacity"
+                />
+              </Link>
+              <Link href="https://www.rofus.nu/" className="block">
+                <img src="/rofus.png" alt="ROFUS" className="h-6 object-contain hover:opacity-80 transition-opacity" />
               </Link>
               <Link href="https://www.begambleaware.org/" className="block">
-                <img src="/gamble.webp" alt="BeGambleAware" className="h-8 object-contain" />
+                <img
+                  src="/gamble.webp"
+                  alt="GambleAware"
+                  className="h- object-contain hover:opacity-80 transition-opacity"
+                />
+              </Link>
+              <Link href="https://www.gamcare.org.uk/" className="block">
+                <img
+                  src="/gamecare.svg"
+                  alt="GamCare"
+                  className="h-12 object-contain hover:opacity-80 transition-opacity bg-white rounded-md p-1"
+                />
               </Link>
             </div>
           </div>
@@ -80,7 +104,6 @@ export function MainSiteFooter() {
           <div className="mt-4 text-center">
             <div className="rounded-lg p-4 bg-transparent border-[]">
               <p className="text-red-300 font-bold text-sm mb-1 flex items-center justify-center gap-2">
-                
                 18+ | Spil kan være vanedannende — Spil sikkert
               </p>
               <p className="text-red-200 text-xs">
