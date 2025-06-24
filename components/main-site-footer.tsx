@@ -6,7 +6,7 @@ export function MainSiteFooter() {
     <footer className="bg-gray-900 text-white py-12 mt-16 border-t border-gray-700">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {/* Brand Section */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-4">
@@ -49,49 +49,11 @@ export function MainSiteFooter() {
               </li>
             </ul>
           </div>
-
-          {/* Responsible Gaming */}
-          <div>
-            <h4 className="text-sm font-bold mb-4 text-gray-200">ANSVARLIGT SPIL</h4>
-            <div className="flex flex-wrap gap-4 justify-start">
-              <Link href="https://spillemyndigheden.dk/" className="block">
-                <img
-                  src="/spillemyn.svg"
-                  alt="Spillemyndigheden"
-                  className="h-12 object-contain hover:opacity-80 transition-opacity bg-white rounded-md p-1"
-                />
-              </Link>
-              <Link href="https://stopspillet.dk/" className="block">
-                <img
-                  src="/stopsillet.svg"
-                  alt="StopSpillet"
-                  className="h-12 object-contain hover:opacity-80 transition-opacity"
-                />
-              </Link>
-              <Link href="https://www.rofus.nu/" className="block">
-                <img src="/rofus.png" alt="ROFUS" className="h-6 object-contain hover:opacity-80 transition-opacity" />
-              </Link>
-              <Link href="https://www.begambleaware.org/" className="block">
-                <img
-                  src="/gamble.webp"
-                  alt="GambleAware"
-                  className="h- object-contain hover:opacity-80 transition-opacity"
-                />
-              </Link>
-              <Link href="https://www.gamcare.org.uk/" className="block">
-                <img
-                  src="/gamecare.svg"
-                  alt="GamCare"
-                  className="h-12 object-contain hover:opacity-80 transition-opacity bg-white rounded-md p-1"
-                />
-              </Link>
-            </div>
-          </div>
         </div>
 
         {/* Bottom Section */}
         <div className="border-t border-gray-700 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
             <p className="text-sm text-gray-400">© 2025 BettingBedsteDanskeSider.dk | Alle rettigheder forbeholdes</p>
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <span>Udviklet i Danmark</span>
@@ -101,8 +63,50 @@ export function MainSiteFooter() {
               </div>
             </div>
           </div>
-          <div className="mt-4 text-center">
-            <div className="rounded-lg p-4 bg-transparent border-[]">
+
+          {/* Responsible Gaming Logos Row */}
+          <div className="border-t border-gray-700 pt-6 mb-4">
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+              <Link href="https://spillemyndigheden.dk/" className="block">
+                <img
+                  src="/spillemyn.svg"
+                  alt="Spillemyndigheden"
+                  className="h-8 md:h-10 object-contain hover:opacity-80 transition-opacity bg-white rounded-md p-1"
+                />
+              </Link>
+              <Link href="https://stopspillet.dk/" className="block">
+                <img
+                  src="/stopsillet.svg"
+                  alt="StopSpillet"
+                  className="h-8 md:h-10 object-contain hover:opacity-80 transition-opacity"
+                />
+              </Link>
+              <Link href="https://www.rofus.nu/" className="block">
+                <img
+                  src="/rofus.png"
+                  alt="ROFUS"
+                  className="h-6 md:h-8 object-contain hover:opacity-80 transition-opacity"
+                />
+              </Link>
+              <Link href="https://www.begambleaware.org/" className="block">
+                <img
+                  src="/gamble.webp"
+                  alt="GambleAware"
+                  className="h-8 md:h-10 object-contain hover:opacity-80 transition-opacity"
+                />
+              </Link>
+              <Link href="https://www.gamcare.org.uk/" className="block">
+                <img
+                  src="/gamecare.svg"
+                  alt="GamCare"
+                  className="h-8 md:h-10 object-contain hover:opacity-80 transition-opacity bg-white rounded-md p-1"
+                />
+              </Link>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="rounded-lg p-4 bg-transparent">
               <p className="text-red-300 font-bold text-sm mb-1 flex items-center justify-center gap-2">
                 18+ | Spil kan være vanedannende — Spil sikkert
               </p>
