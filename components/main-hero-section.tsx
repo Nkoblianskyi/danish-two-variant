@@ -51,7 +51,7 @@ export function MainHeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: Her
       {/* Desktop Hero - Fixed 300px height */}
       <div className="hidden lg:block relative overflow-hidden mb-6">
         <div className="sports-card border-2 border-brand-300">
-          <div className="relative px-6 py-4 bg-white min-h-[280px] flex flex-col justify-between">
+          <div className="relative px-6 py-4 bg-white bg-opacity-15 min-h-[280px] flex flex-col justify-between">
             <div className="relative z-10 text-center">
               {/* Trust Indicators */}
 

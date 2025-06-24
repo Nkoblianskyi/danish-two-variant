@@ -212,7 +212,6 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
                 {/* Special Badge */}
                 {specialBadge && (
                   <div className="flex items-center justify-center gap-1 bg-white px-2 py-1 rounded-lg border-2 border-neutral-300 shadow-lg mb-2">
-                    <specialBadge.icon className={`w-3 h-3 ${specialBadge.color}`} />
                     <span className={`text-xs font-bold ${specialBadge.color}`}>{specialBadge.text}</span>
                   </div>
                 )}
@@ -220,11 +219,11 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
                 {/* Logo */}
                 <div className="relative mb-4">
                   {/* Danish Flag */}
-                  <div className="flag-badge absolute -top-2 left-1/2 transform -translate-x-1/2 z-10"></div>
+
 
                   {/* Logo Container */}
-                  <div className="bg-white border-2 border-neutral-300 rounded-lg p-4 shadow-lg group-hover:shadow-xl transition-all duration-300 mt-2">
-                    <img src={site.logo || "/placeholder.svg"} alt={site.name} className="w-full h-12 object-contain" />
+                  <div className="bg-transparent  rounded-lg p-4 group-hover:shadow-xl transition-all duration-300 mt-2">
+                    <img src={site.logo || "/placeholder.svg"} width={200 } height={200} alt={site.name} className="w-full h-20 object-contain" />
                   </div>
                 </div>
 
@@ -249,8 +248,8 @@ export function BettingSiteCard({ site, rank }: SiteCardProps) {
                 {/* Bonus */}
                 <div className="text-center mb-4">
                   <div className="text-xs font-medium text-neutral-500 mb-1 uppercase tracking-wide">BONUS</div>
-                  <div className="text-neutral-900 text-lg font-bold mb-2">{site.bonus}</div>
-                  <div className="text-brand-700 text-base font-semibold">{site.welcomeOffer}</div>
+                  <div className="text-neutral-900 text-xl font-bold mb-2">{site.bonus}</div>
+                  <div className="text-brand-700 text-2xl font-bold">{site.welcomeOffer}</div>
                 </div>
 
                 {/* Button */}

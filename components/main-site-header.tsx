@@ -25,7 +25,7 @@ export function MainSiteHeader() {
 
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1 bg-success-600 px-2 py-1 rounded-lg border border-success-700">
-              <Shield className="w-3 h-3 text-white" />
+              <Image src="/flag.png" alt="Trustpilot" width={24} height={24} />
               <span className="text-xs font-bold text-white">SIKKER</span>
             </div>
           </div>
@@ -57,7 +57,7 @@ export function MainSiteHeader() {
             {/* Trust Indicators */}
             <div className="hidden lg:flex items-center gap-3">
               <div className="flex items-center gap-2 bg-success-600 px-3 py-2 rounded-lg border border-success-700">
-                <Shield className="w-4 h-4 text-white" />
+                <Image src="/flag.png" alt="Trustpilot" width={24} height={24} />
                 <div className="text-left">
                   <div className="text-xs font-bold text-white">LICENSERET</div>
                 </div>
