@@ -10,8 +10,10 @@ export function MainSiteFooter() {
           {/* Brand Section */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-accent-gold-400 to-accent-gold-600 rounded-lg flex items-center justify-center">
-                <Image src="/logo.png" alt="Logo" width={24} height={24} />
+              <div className="relative">
+                <div className="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center shadow-lg border-2 border-gold-600">
+                  <Image src="/logo.png" alt="Logo" width={40} height={40} className="w-6 h-6" />
+                </div>
               </div>
               <div>
                 <h3 className="text-lg font-bold text-white">BETTING BEDSTE DANSKE SIDER</h3>
@@ -30,11 +32,6 @@ export function MainSiteFooter() {
               <li>
                 <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
                   Om os
-                </Link>
-              </li>
-              <li>
-                <Link href="/responsible-gaming" className="text-gray-300 hover:text-white transition-colors">
-                  Ansvarligt spil
                 </Link>
               </li>
               <li>
